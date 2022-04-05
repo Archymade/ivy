@@ -332,9 +332,6 @@ Citation
       year={2021}
     }
 
-Documentation Tree
-------------------
-
 .. toctree::
    :maxdepth: -1
    :caption: Guides
@@ -346,6 +343,7 @@ Documentation Tree
 
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: Functional
 
@@ -354,6 +352,7 @@ Documentation Tree
 
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: Stateful
 
@@ -368,6 +367,7 @@ Documentation Tree
 
 
 .. toctree::
+   :hidden:
    :maxdepth: -1
    :caption: Docs
 
