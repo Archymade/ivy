@@ -71,8 +71,7 @@ def unique_all(x: Union[ivy.Array, ivy.NativeArray]) \
     return _cur_framework(x).unique_all(x)
 
 
-def unique_inverse(x: Union[ivy.Array, ivy.NativeArray]) \
-        -> Tuple[ivy.Array, ivy.Array]:
+def unique_inverse(x: Union[ivy.Array, ivy.NativeArray]) -> Tuple[ivy.Array, ivy.Array]:
     """Returns a tuple of two arrays, one being the unique elements of an input array x and the other one the indices from
     the set of uniques elements that reconstruct x.
 
@@ -82,7 +81,7 @@ def unique_inverse(x: Union[ivy.Array, ivy.NativeArray]) \
         input array.
 
     Returns
-    -------
+     -------
     ret
         tuple of two arrays (values, inverse_indices)
 
@@ -90,8 +89,10 @@ def unique_inverse(x: Union[ivy.Array, ivy.NativeArray]) \
     return _cur_framework(x).unique_inverse(x)
 
 
-def unique_values(x: Union[ivy.Array, ivy.NativeArray], out: Optional[Union[ivy.Array, ivy.NativeArray]] = None) \
-        -> ivy.Array:
+def unique_values(
+    x: Union[ivy.Array, ivy.NativeArray],
+    out: Optional[Union[ivy.Array, ivy.NativeArray]] = None,
+) -> ivy.Array:
     """
     Returns the unique elements of an input array ``x``.
     .. admonition:: Data-dependent output shape
@@ -106,7 +107,7 @@ def unique_values(x: Union[ivy.Array, ivy.NativeArray], out: Optional[Union[ivy.
     x
         input array. If ``x`` has more than one dimension, the function must flatten ``x`` and return the unique elements of the flattened array.
     Returns
-    -------
+     -------
     ret
         an array containing the set of unique elements in ``x``. The returned array must have the same data type as ``x``.
         .. note::
@@ -115,23 +116,23 @@ def unique_values(x: Union[ivy.Array, ivy.NativeArray], out: Optional[Union[ivy.
     return _cur_framework(x).unique_values(x, out)
 
 
-def unique_counts(x: Union[ivy.Array, ivy.NativeArray])\
-        -> Tuple[ivy.Array, ivy.Array]:
-    """Returns the unique elements of an input array x and the corresponding counts for each unique element in x.
+def unique_counts(x: Union[ivy.Array, ivy.NativeArray]) -> Tuple[ivy.Array, ivy.Array]:
+    """
+    Returns the unique elements of an input array x and the corresponding counts for each unique element in x.
 
     Parameters
     ----------
-    x
+    x:
         input array. If x has more than one dimension, the function must flatten x and return the unique elements of the flattened array.
 
     Returns
-    -------
-    ret
+     -------
+    ret:
         a namedtuple (values, counts) whose
         -first element must have the field name values and must be an array containing the unique elements of x. The array must have the same data type as x.
         -second element must have the field name counts and must be an array containing the number of times each unique element occurs in x. The returned array must have same shape as values and must have the default array index data type.
     
-   Examples
+    Examples
    --------
    >>> x = ivy.random_normal(mean=0.0, std=1.0, shape=(4, 4))
    >>> print(x)
@@ -151,5 +152,6 @@ def unique_counts(x: Union[ivy.Array, ivy.NativeArray])\
               -0.0545,  0.0775,  0.2577,  0.5944,  0.7443,  0.8101,  0.8460,  0.9298])
    >>> print(counts)
    ivy.array([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
-   """
+
+    """
     return _cur_framework(x).unique_counts(x)
