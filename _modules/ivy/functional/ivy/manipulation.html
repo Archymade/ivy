@@ -165,35 +165,19 @@
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Removes singleton dimensions (axes) from ``x``.</span>
-<span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    x:</span>
+<span class="sd">    x</span>
 <span class="sd">        input array.</span>
-<span class="sd">    axis:</span>
+<span class="sd">    axis</span>
 <span class="sd">        axis (or axes) to squeeze. If a specified axis has a size greater than one, a ``ValueError`` must be raised.</span>
-<span class="sd">    out:</span>
+<span class="sd">    out</span>
 <span class="sd">        optional output array, for writing the result to. It must have a shape that the inputs broadcast to.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">     ret:</span>
+<span class="sd">     ret</span>
 <span class="sd">        an output array having the same data type and elements as ``x``.</span>
-<span class="sd">        </span>
-<span class="sd">    Example</span>
-<span class="sd">    -------</span>
-<span class="sd">    &gt;&gt;&gt; x = ivy.array([[[5., 8.], [7., 4.]]])</span>
-<span class="sd">    &gt;&gt;&gt; print(x)</span>
-<span class="sd">    ivy.array([[[5., 8.],</span>
-<span class="sd">                [7., 4.]]])</span>
-<span class="sd">    &gt;&gt;&gt; print(ivy.shape(x)) #Before squeezing</span>
-<span class="sd">    (1, 2, 2)</span>
-<span class="sd">    &gt;&gt;&gt; x = ivy.squeeze(x, axis = 0) #Squeeze</span>
-<span class="sd">    &gt;&gt;&gt; print(x)</span>
-<span class="sd">    ivy.array([[5., 8.],</span>
-<span class="sd">               [7., 4.]])</span>
-<span class="sd">    &gt;&gt;&gt; print(ivy.shape(x)) #After squeezing</span>
-<span class="sd">    (2, 2)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span></div>
 
@@ -208,34 +192,17 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    x:</span>
+<span class="sd">    x</span>
 <span class="sd">        input array.</span>
-<span class="sd">    axis:</span>
+<span class="sd">    axis</span>
 <span class="sd">        axis (or axes) along which to flip. If ``axis`` is ``None``, the function must flip all input array axes. If ``axis`` is negative, the function must count from the last dimension. If provided more than one axis, the function must flip only the specified axes. Default  ``None``.</span>
-<span class="sd">    out:</span>
+<span class="sd">    out</span>
 <span class="sd">        optional output array, for writing the result to. It must have a shape that the inputs broadcast to.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">     ret:</span>
+<span class="sd">     ret</span>
 <span class="sd">        an output array having the same data type and shape as ``x`` and whose elements, relative to ``x``, are reordered.</span>
-<span class="sd">    </span>
-<span class="sd">    Example</span>
-<span class="sd">    -------</span>
-<span class="sd">    &gt;&gt;&gt; x = ivy.randint(low = 0, high = 9, shape = (5, 5))</span>
-<span class="sd">    &gt;&gt;&gt; print(x)</span>
-<span class="sd">    ivy.array([[0, 7, 4, 3, 8],</span>
-<span class="sd">               [2, 8, 8, 5, 2],</span>
-<span class="sd">               [7, 5, 4, 6, 4],</span>
-<span class="sd">               [2, 1, 6, 6, 7],</span>
-<span class="sd">               [1, 1, 2, 5, 3]])</span>
-<span class="sd">    &gt;&gt;&gt; ret = ivy.flip(x, axis = (0, 1))</span>
-<span class="sd">    &gt;&gt;&gt; print(ret)</span>
-<span class="sd">    ivy.array([[3, 5, 2, 1, 1],</span>
-<span class="sd">               [7, 6, 6, 1, 2],</span>
-<span class="sd">               [4, 6, 4, 5, 7],</span>
-<span class="sd">               [2, 5, 8, 8, 2],</span>
-<span class="sd">               [8, 3, 4, 7, 0]])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span></div>
@@ -277,75 +244,27 @@
     <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="permute_dims"><a class="viewcode-back" href="../../../../functional/ivy/manipulation/permute_dims.html#ivy.functional.ivy.manipulation.permute_dims">[docs]</a><span class="k">def</span> <span class="nf">permute_dims</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
-                 <span class="n">axes</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
-                 <span class="n">out</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> \
-        <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">:</span>
+<div class="viewcode-block" id="permute_dims"><a class="viewcode-back" href="../../../../functional/ivy/manipulation/permute_dims.html#ivy.functional.ivy.manipulation.permute_dims">[docs]</a><span class="k">def</span> <span class="nf">permute_dims</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
+    <span class="n">axes</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span>
+    <span class="n">out</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Permutes the axes (dimensions) of an array x.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    x:</span>
+<span class="sd">    x</span>
 <span class="sd">        input array.</span>
-<span class="sd">    axes:</span>
+<span class="sd">    axes</span>
 <span class="sd">        tuple containing a permutation of (0, 1, ..., N-1) where N is the number of axes (dimensions) of x.</span>
-<span class="sd">    out:</span>
+<span class="sd">    out</span>
 <span class="sd">        optional output array, for writing the result to. It must have a shape that the inputs broadcast to.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">     ret:</span>
+<span class="sd">     ret</span>
 <span class="sd">        an array containing the axes permutation. The returned array must have the same data type as x.</span>
-<span class="sd">        </span>
-<span class="sd">    Example</span>
-<span class="sd">    -------</span>
-<span class="sd">    &gt;&gt;&gt; x = ivy.randint(low = 0, high = 9, shape = (5, 4, 3))</span>
-<span class="sd">    &gt;&gt;&gt; print(x)</span>
-<span class="sd">    ivy.array([[[8, 1, 4],</span>
-<span class="sd">                [8, 8, 8],</span>
-<span class="sd">                [1, 4, 8],</span>
-<span class="sd">                [8, 0, 0]],</span>
-
-<span class="sd">               [[8, 2, 3],</span>
-<span class="sd">                [4, 1, 4],</span>
-<span class="sd">                [2, 2, 6],</span>
-<span class="sd">                [6, 6, 6]],</span>
-
-<span class="sd">               [[1, 5, 5],</span>
-<span class="sd">                [5, 5, 1],</span>
-<span class="sd">                [7, 7, 3],</span>
-<span class="sd">                [5, 4, 8]],</span>
-
-<span class="sd">               [[3, 6, 4],</span>
-<span class="sd">                [4, 1, 2],</span>
-<span class="sd">                [3, 2, 8],</span>
-<span class="sd">                [0, 3, 3]],</span>
-
-<span class="sd">               [[8, 8, 0],</span>
-<span class="sd">                [6, 8, 1],</span>
-<span class="sd">                [4, 1, 8],</span>
-<span class="sd">                [2, 1, 5]]])</span>
-<span class="sd">    &gt;&gt;&gt; print(ivy.shape(x))</span>
-<span class="sd">    (5, 4, 3)</span>
-<span class="sd">    &gt;&gt;&gt; ret = ivy.permute_dims(x, axes = (2, 1, 0))</span>
-<span class="sd">    &gt;&gt;&gt; print(ret)</span>
-<span class="sd">    ivy.array([[[8, 8, 1, 3, 8],</span>
-<span class="sd">                [8, 4, 5, 4, 6],</span>
-<span class="sd">                [1, 2, 7, 3, 4],</span>
-<span class="sd">                [8, 6, 5, 0, 2]],</span>
-
-<span class="sd">               [[1, 2, 5, 6, 8],</span>
-<span class="sd">                [8, 1, 5, 1, 8],</span>
-<span class="sd">                [4, 2, 7, 2, 1],</span>
-<span class="sd">                [0, 6, 4, 3, 1]],</span>
-
-<span class="sd">               [[4, 3, 5, 4, 0],</span>
-<span class="sd">                [8, 4, 1, 2, 1],</span>
-<span class="sd">                [8, 6, 3, 8, 8],</span>
-<span class="sd">                [0, 6, 8, 3, 5]]])</span>
-<span class="sd">    &gt;&gt;&gt; print(ivy.shape(ret))</span>
-<span class="sd">    (3, 4, 5)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">permute_dims</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axes</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span></div>
 
@@ -412,52 +331,27 @@
     <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="concat"><a class="viewcode-back" href="../../../../functional/ivy/manipulation/concat.html#ivy.functional.ivy.manipulation.concat">[docs]</a><span class="k">def</span> <span class="nf">concat</span><span class="p">(</span><span class="n">xs</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">]],</span>
-                     <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">]]],</span>
-           <span class="n">axis</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-           <span class="n">out</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>\
-        <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">]:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Casts an array to a specified type.</span>
+<div class="viewcode-block" id="concat"><a class="viewcode-back" href="../../../../functional/ivy/manipulation/concat.html#ivy.functional.ivy.manipulation.concat">[docs]</a><span class="k">def</span> <span class="nf">concat</span><span class="p">(</span>
+    <span class="n">xs</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span>
+        <span class="n">Tuple</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">]],</span>
+        <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">]],</span>
+    <span class="p">],</span>
+    <span class="n">axis</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">out</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Container</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Casts an array to a specified type.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    xs: </span>
+<span class="sd">    xs</span>
 <span class="sd">        The input arrays must have the same shape, except in the dimension corresponding to axis</span>
 <span class="sd">        (the first, by default).</span>
-<span class="sd">    axis:</span>
+<span class="sd">    axis</span>
 <span class="sd">        The axis along which the arrays will be joined. Default is -1.</span>
-<span class="sd">    </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">     ret:</span>
+<span class="sd">     ret</span>
 <span class="sd">        The concatenated array.</span>
-<span class="sd">        </span>
-<span class="sd">    Examples</span>
-<span class="sd">    --------</span>
-<span class="sd">    &gt;&gt;&gt; x = ivy.array([[1,2,3], [4,5,6]])</span>
-<span class="sd">    &gt;&gt;&gt; print(x)</span>
-<span class="sd">    ivy.array([[1,2,3],</span>
-<span class="sd">               [4,5,6]])</span>
-<span class="sd">    &gt;&gt;&gt; print(ivy.shape(x))</span>
-<span class="sd">    (2, 3)</span>
-<span class="sd">    </span>
-<span class="sd">    &gt;&gt;&gt; ret = ivy.concat([x, x], axis = 0) #Concatenate along axis 0</span>
-<span class="sd">    &gt;&gt;&gt; print(ret)</span>
-<span class="sd">    ivy.array([[1, 2, 3],</span>
-<span class="sd">               [4, 5, 6],</span>
-<span class="sd">               [1, 2, 3],</span>
-<span class="sd">               [4, 5, 6]])</span>
-<span class="sd">    &gt;&gt;&gt; print(ivy.shape(ret))</span>
-<span class="sd">    (4, 3)</span>
-<span class="sd">    </span>
-<span class="sd">    &gt;&gt;&gt; ret = ivy.concat([x, x], axis = 1) #Concatenate along axis 1</span>
-<span class="sd">    &gt;&gt;&gt; print(ret)</span>
-<span class="sd">    ivy.array([[1, 2, 3, 1, 2, 3],</span>
-<span class="sd">               [4, 5, 6, 4, 5, 6]])</span>
-<span class="sd">    &gt;&gt;&gt; print(ivy.shape(ret))</span>
-<span class="sd">    (2, 6)</span>
-<span class="sd">    </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">xs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span></div>
 
@@ -466,88 +360,31 @@
 <span class="c1"># ------#</span>
 
 
-<div class="viewcode-block" id="split"><a class="viewcode-back" href="../../../../functional/ivy/manipulation/split.html#ivy.functional.ivy.manipulation.split">[docs]</a><span class="k">def</span> <span class="nf">split</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
-          <span class="n">num_or_size_splits</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-          <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-          <span class="n">with_remainder</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> \
-          <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">]:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Splits an array into multiple sub-arrays.</span>
+<div class="viewcode-block" id="split"><a class="viewcode-back" href="../../../../functional/ivy/manipulation/split.html#ivy.functional.ivy.manipulation.split">[docs]</a><span class="k">def</span> <span class="nf">split</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
+    <span class="n">num_or_size_splits</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">with_remainder</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Splits an array into multiple sub-arrays.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    x:</span>
+<span class="sd">    x</span>
 <span class="sd">        Tensor to be divided into sub-arrays.</span>
-<span class="sd">    num_or_size_splits: </span>
+<span class="sd">    num_or_size_splits</span>
 <span class="sd">        Number of equal arrays to divide the array into along the given axis if an integer.</span>
 <span class="sd">        The size of each split element if a sequence of integers.</span>
 <span class="sd">        Default is to divide into as many 1-dimensional arrays as the axis dimension.</span>
-<span class="sd">    axis:</span>
+<span class="sd">    axis</span>
 <span class="sd">        The axis along which to split, default is 0.</span>
-<span class="sd">    with_remainder:</span>
+<span class="sd">    with_remainder</span>
 <span class="sd">        If the tensor does not split evenly, then store the last remainder entry. Default is False.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    ret:</span>
+<span class="sd">     ret</span>
 <span class="sd">        A list of sub-arrays.</span>
-<span class="sd">        </span>
-<span class="sd">    Example</span>
-<span class="sd">    -------</span>
-<span class="sd">    &gt;&gt;&gt; x = ivy.randint(low = 0, high = 9, shape = (5, 4, 3))</span>
-<span class="sd">    &gt;&gt;&gt; print(x)</span>
-<span class="sd">    ivy.array([[[8, 1, 4],</span>
-<span class="sd">                [8, 8, 8],</span>
-<span class="sd">                [1, 4, 8],</span>
-<span class="sd">                [8, 0, 0]],</span>
-
-<span class="sd">               [[8, 2, 3],</span>
-<span class="sd">                [4, 1, 4],</span>
-<span class="sd">                [2, 2, 6],</span>
-<span class="sd">                [6, 6, 6]],</span>
-
-<span class="sd">               [[1, 5, 5],</span>
-<span class="sd">                [5, 5, 1],</span>
-<span class="sd">                [7, 7, 3],</span>
-<span class="sd">                [5, 4, 8]],</span>
-
-<span class="sd">               [[3, 6, 4],</span>
-<span class="sd">                [4, 1, 2],</span>
-<span class="sd">                [3, 2, 8],</span>
-<span class="sd">                [0, 3, 3]],</span>
-
-<span class="sd">               [[8, 8, 0],</span>
-<span class="sd">                [6, 8, 1],</span>
-<span class="sd">                [4, 1, 8],</span>
-<span class="sd">                [2, 1, 5]]])</span>
-<span class="sd">                </span>
-<span class="sd">    &gt;&gt;&gt; splits = ivy.split(x, num_or_size_splits = 3, axis = 1)</span>
-<span class="sd">    &gt;&gt;&gt; print(type(splits))</span>
-<span class="sd">    &lt;class &#39;list&#39;&gt;</span>
-<span class="sd">    &gt;&gt;&gt; print(splits)</span>
-<span class="sd">    [ivy.array([[[8, 1, 4]],</span>
-<span class="sd">                [[8, 2, 3]],</span>
-<span class="sd">                [[1, 5, 5]],</span>
-<span class="sd">                [[3, 6, 4]],</span>
-<span class="sd">                [[8, 8, 0]]]),</span>
-<span class="sd">     </span>
-<span class="sd">     ivy.array([[[8, 8, 8]],</span>
-<span class="sd">                [[4, 1, 4]],</span>
-<span class="sd">                [[5, 5, 1]],</span>
-<span class="sd">                [[4, 1, 2]],</span>
-<span class="sd">                [[6, 8, 1]]]),</span>
-<span class="sd">    </span>
-<span class="sd">     ivy.array([[[1, 4, 8]],</span>
-<span class="sd">                [[2, 2, 6]],</span>
-<span class="sd">                [[7, 7, 3]],</span>
-<span class="sd">                [[3, 2, 8]],</span>
-<span class="sd">                [[4, 1, 8]]]),</span>
-<span class="sd">     </span>
-<span class="sd">     ivy.array([[[8, 0, 0]],</span>
-<span class="sd">                [[6, 6, 6]],</span>
-<span class="sd">                [[5, 4, 8]],</span>
-<span class="sd">                [[0, 3, 3]],</span>
-<span class="sd">                [[2, 1, 5]]])]</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">num_or_size_splits</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">with_remainder</span><span class="p">)</span></div>

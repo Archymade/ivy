@@ -140,30 +140,19 @@ indices sampled from the multinomial probability distribution located in the cor
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>population_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The size of the population from which to draw samples.</p></li>
-<li><p><strong>num_samples</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of independent samples to draw from the population.</p></li>
-<li><p><strong>batch_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of times to draw a new set of samples from the population.</p></li>
-<li><p><strong>probs</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NativeArray</span></code>]]) – The unnormalized probabilities for all elemtns in population, (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)
+<li><p><strong>population_size</strong> – The size of the population from which to draw samples.</p></li>
+<li><p><strong>num_samples</strong> – Number of independent samples to draw from the population.</p></li>
+<li><p><strong>batch_size</strong> – Number of times to draw a new set of samples from the population.</p></li>
+<li><p><strong>probs</strong> – The unnormalized probabilities for all elemtns in population,
 default is uniform <em>[batch_shape, num_classes]</em></p></li>
-<li><p><strong>replace</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Whether to replace samples once they’ve been drawn. Default is True. (default: <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p></li>
-<li><p><strong>device</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Device</span></code>]) – device on which to create the array ‘cuda:0’, ‘cuda:1’, ‘cpu’ etc. (Default value = None) (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p></li>
+<li><p><strong>replace</strong> – Whether to replace samples once they’ve been drawn. Default is True.</p></li>
+<li><p><strong>device</strong> – device on which to create the array ‘cuda:0’, ‘cuda:1’, ‘cpu’ etc. (Default value = None)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><em>ret</em> – Drawn samples indices from the multinomial distribution.</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>ret</em> – Drawn samples indices from the multinomial distribution.</p>
 </dd>
 </dl>
-<p class="rubric">Example</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ret</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">multinomial</span><span class="p">(</span><span class="n">population_size</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">num_samples</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
-<span class="go">ivy.array([[0, 1, 3, 4],</span>
-<span class="go">           [2, 3, 2, 0],</span>
-<span class="go">           [4, 4, 1, 0]])</span>
-</pre></div>
-</div>
 </dd></dl>
 
 <dl class="py function">
@@ -173,26 +162,13 @@ default is uniform <em>[batch_shape, num_classes]</em></p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>low</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Lowest integer to be drawn from the distribution.</p></li>
-<li><p><strong>high</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – One above the highest integer to be drawn from the distribution.</p></li>
-<li><p><strong>shape</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">...</span></code>]]) – a tuple defining the shape of the output tensor.</p></li>
-<li><p><strong>device</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Device</span></code>]) – device on which to create the array ‘cuda:0’, ‘cuda:1’, ‘cpu’ etc. (Default value = None) (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p></li>
+<li><p><strong>low</strong> – Lowest integer to be drawn from the distribution.</p></li>
+<li><p><strong>high</strong> – One above the highest integer to be drawn from the distribution.</p></li>
+<li><p><strong>shape</strong> – a tuple defining the shape of the output tensor.</p></li>
+<li><p><strong>device</strong> – device on which to create the array ‘cuda:0’, ‘cuda:1’, ‘cpu’ etc. (Default value = None)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><em>out</em> – <cite>size</cite>-shaped array of random integers from the appropriate distribution, or a single such random int if <cite>size</cite> not provided.</p>
-</dd>
 </dl>
-<p class="rubric">Example</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="go">ivy.array([[4, 1, 6, 7, 5, 4, 0, 2, 7, 8],</span>
-<span class="go">           [4, 5, 9, 1, 1, 0, 5, 8, 9, 2]])</span>
-</pre></div>
-</div>
 </dd></dl>
 
 <dl class="py function">
@@ -202,29 +178,17 @@ default is uniform <em>[batch_shape, num_classes]</em></p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mean</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The mean of the normal distribution to sample from. Default is 0. (default: <code class="docutils literal notranslate"><span class="pre">0.0</span></code>)</p></li>
-<li><p><strong>std</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The standard deviation of the normal distribution to sample from. Default is 1. (default: <code class="docutils literal notranslate"><span class="pre">1.0</span></code>)</p></li>
-<li><p><strong>shape</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">...</span></code>]]]) – Output shape. If the given shape is, e.g., (m, n, k), then m * n * k samples are drawn. (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)
+<li><p><strong>mean</strong> – The mean of the normal distribution to sample from. Default is 0.</p></li>
+<li><p><strong>std</strong> – The standard deviation of the normal distribution to sample from. Default is 1.</p></li>
+<li><p><strong>shape</strong> – Output shape. If the given shape is, e.g., (m, n, k), then m * n * k samples are drawn.
 If size is None (default), a single value is returned.</p></li>
-<li><p><strong>device</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Device</span></code>]) – device on which to create the array ‘cuda:0’, ‘cuda:1’, ‘cpu’ etc. (Default value = None) (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p></li>
+<li><p><strong>device</strong> – device on which to create the array ‘cuda:0’, ‘cuda:1’, ‘cpu’ etc. (Default value = None)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><em>ret</em> – Drawn samples from the parameterized uniform distribution.</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>ret</em> – Drawn samples from the parameterized uniform distribution.</p>
 </dd>
 </dl>
-<p class="rubric">Example</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">random_normal</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="go">ivy.array([[ 2.1141,  0.8101,  0.9298,  0.8460],</span>
-<span class="go">           [-1.2119, -0.3519, -0.6252,  0.4033],</span>
-<span class="go">           [ 0.7443,  0.2577, -0.3707, -0.0545],</span>
-<span class="go">           [-0.3238,  0.5944,  0.0775, -0.4327]])</span>
-</pre></div>
-</div>
 </dd></dl>
 
 <dl class="py function">
@@ -275,30 +239,12 @@ interval is equally likely to be drawn by uniform.</p>
 <dd><p>Shuffles the given array along axis 0.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>x</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NativeArray</span></code>]) – An array object, in the specific Machine learning framework.</p>
+<dd class="field-odd"><p><strong>x</strong> – An array object, in the specific Machine learning framework.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><em>ret</em> – An array object, shuffled along the first dimension.</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>ret</em> – An array object, shuffled along the first dimension.</p>
 </dd>
 </dl>
-<p class="rubric">Example</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">random_normal</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="go">ivy.array([[-1.3250, -0.2924,  0.9763, -0.6396],</span>
-<span class="go">           [-2.1592,  0.2214,  0.3466, -0.4488],</span>
-<span class="go">           [ 0.2806,  0.5338,  0.6362, -1.0206],</span>
-<span class="go">           [-2.3644,  1.5784,  2.9821,  0.2933]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="go">ivy.array([[ 0.2806,  0.5338,  0.6362, -1.0206],</span>
-<span class="go">           [-2.3644,  1.5784,  2.9821,  0.2933],</span>
-<span class="go">           [-1.3250, -0.2924,  0.9763, -0.6396],</span>
-<span class="go">           [-2.1592,  0.2214,  0.3466, -0.4488]])</span>
-</pre></div>
-</div>
 </dd></dl>
 
 <div class="toctree-wrapper compound">

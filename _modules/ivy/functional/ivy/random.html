@@ -122,7 +122,7 @@
 <span class="sd">Collection of random Ivy functions</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="c1"># global </span>
+<span class="c1"># global</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Tuple</span>
 
 <span class="c1"># local</span>
@@ -134,16 +134,17 @@
 <span class="c1"># ------#</span>
 
 
-<div class="viewcode-block" id="random_uniform"><a class="viewcode-back" href="../../../../functional/ivy/random/random_uniform.html#ivy.functional.ivy.random.random_uniform">[docs]</a><span class="k">def</span> <span class="nf">random_uniform</span><span class="p">(</span><span class="n">low</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> 
-                   <span class="n">high</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
-                   <span class="n">shape</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-                   <span class="n">device</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Device</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>\
-        <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">array</span><span class="p">:</span>
+<div class="viewcode-block" id="random_uniform"><a class="viewcode-back" href="../../../../functional/ivy/random/random_uniform.html#ivy.functional.ivy.random.random_uniform">[docs]</a><span class="k">def</span> <span class="nf">random_uniform</span><span class="p">(</span>
+    <span class="n">low</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+    <span class="n">high</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">shape</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">device</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Device</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">array</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Draws samples from a uniform distribution. Samples are uniformly distributed over the half-open </span>
-<span class="sd">    interval ``[low, high)`` (includes ``low``, but excludes ``high``). In other words, any value within the given </span>
+<span class="sd">    Draws samples from a uniform distribution. Samples are uniformly distributed over the half-open</span>
+<span class="sd">    interval ``[low, high)`` (includes ``low``, but excludes ``high``). In other words, any value within the given</span>
 <span class="sd">    interval is equally likely to be drawn by uniform.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    -----------</span>
 <span class="sd">    low</span>
@@ -151,7 +152,7 @@
 <span class="sd">    high</span>
 <span class="sd">        Upper boundary of the output interval. All the values generated will be less than ``high``.</span>
 <span class="sd">    shape</span>
-<span class="sd">        If the given shape is, e.g ``(m, n, k)``, then ``m * n * k`` samples are drawn. If size is ``None`` </span>
+<span class="sd">        If the given shape is, e.g ``(m, n, k)``, then ``m * n * k`` samples are drawn. If size is ``None``</span>
 <span class="sd">        (Default), a single value is returned.</span>
 <span class="sd">    device</span>
 <span class="sd">        device on which to create the array &#39;cuda:0&#39;, &#39;cuda:1&#39;, &#39;cpu&#39; etc.</span>
@@ -166,122 +167,85 @@
 <span class="sd">    &gt;&gt;&gt; y = ivy.random_uniform(0.0, 2.0)</span>
 <span class="sd">    &gt;&gt;&gt; print(y)</span>
 <span class="sd">    ivy.array(1.89150229)</span>
-<span class="sd">    </span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">()</span><span class="o">.</span><span class="n">random_uniform</span><span class="p">(</span><span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="random_normal"><a class="viewcode-back" href="../../../../functional/ivy/random/random_normal.html#ivy.functional.ivy.random.random_normal">[docs]</a><span class="k">def</span> <span class="nf">random_normal</span><span class="p">(</span><span class="n">mean</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
-                  <span class="n">std</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
-                  <span class="n">shape</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-                  <span class="n">device</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Device</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> \
-                  <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Draws samples from a normal distribution.</span>
+<div class="viewcode-block" id="random_normal"><a class="viewcode-back" href="../../../../functional/ivy/random/random_normal.html#ivy.functional.ivy.random.random_normal">[docs]</a><span class="k">def</span> <span class="nf">random_normal</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Draws samples from a normal distribution.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    mean:</span>
+<span class="sd">    mean</span>
 <span class="sd">        The mean of the normal distribution to sample from. Default is 0.</span>
-<span class="sd">    std:</span>
+<span class="sd">    std</span>
 <span class="sd">        The standard deviation of the normal distribution to sample from. Default is 1.</span>
-<span class="sd">    shape:</span>
+<span class="sd">    shape</span>
 <span class="sd">        Output shape. If the given shape is, e.g., (m, n, k), then m * n * k samples are drawn.</span>
 <span class="sd">        If size is None (default), a single value is returned.</span>
-<span class="sd">    device:</span>
+<span class="sd">    device</span>
 <span class="sd">        device on which to create the array &#39;cuda:0&#39;, &#39;cuda:1&#39;, &#39;cpu&#39; etc. (Default value = None)</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    ret:</span>
+<span class="sd">     ret</span>
 <span class="sd">        Drawn samples from the parameterized uniform distribution.</span>
-<span class="sd">        </span>
-<span class="sd">    Example</span>
-<span class="sd">    -------</span>
-<span class="sd">    &gt;&gt;&gt; x = ivy.random_normal(mean=0.0, std=1.0, shape=(4, 4))</span>
-<span class="sd">    &gt;&gt;&gt; print(x)</span>
-<span class="sd">    ivy.array([[ 2.1141,  0.8101,  0.9298,  0.8460],</span>
-<span class="sd">               [-1.2119, -0.3519, -0.6252,  0.4033],</span>
-<span class="sd">               [ 0.7443,  0.2577, -0.3707, -0.0545],</span>
-<span class="sd">               [-0.3238,  0.5944,  0.0775, -0.4327]])</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">()</span><span class="o">.</span><span class="n">random_normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="multinomial"><a class="viewcode-back" href="../../../../functional/ivy/random/multinomial.html#ivy.functional.ivy.random.multinomial">[docs]</a><span class="k">def</span> <span class="nf">multinomial</span><span class="p">(</span><span class="n">population_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-                <span class="n">num_samples</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-                <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-                <span class="n">probs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">]]</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                <span class="n">replace</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                <span class="n">device</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Device</span><span class="p">]</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>\
-                <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Draws samples from a multinomial distribution. Specifcally, returns a tensor where each row contains num_samples</span>
+<div class="viewcode-block" id="multinomial"><a class="viewcode-back" href="../../../../functional/ivy/random/multinomial.html#ivy.functional.ivy.random.multinomial">[docs]</a><span class="k">def</span> <span class="nf">multinomial</span><span class="p">(</span>
+    <span class="n">population_size</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">probs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Draws samples from a multinomial distribution. Specifcally, returns a tensor where each row contains num_samples</span>
 <span class="sd">    indices sampled from the multinomial probability distribution located in the corresponding row of tensor input.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    population_size:</span>
+<span class="sd">    population_size</span>
 <span class="sd">        The size of the population from which to draw samples.</span>
-<span class="sd">    num_samples:</span>
+<span class="sd">    num_samples</span>
 <span class="sd">        Number of independent samples to draw from the population.</span>
-<span class="sd">    batch_size:</span>
+<span class="sd">    batch_size</span>
 <span class="sd">        Number of times to draw a new set of samples from the population.</span>
-<span class="sd">    probs:</span>
+<span class="sd">    probs</span>
 <span class="sd">        The unnormalized probabilities for all elemtns in population,</span>
 <span class="sd">        default is uniform *[batch_shape, num_classes]*</span>
-<span class="sd">    replace:</span>
+<span class="sd">    replace</span>
 <span class="sd">        Whether to replace samples once they&#39;ve been drawn. Default is True.</span>
-<span class="sd">    device:</span>
+<span class="sd">    device</span>
 <span class="sd">        device on which to create the array &#39;cuda:0&#39;, &#39;cuda:1&#39;, &#39;cpu&#39; etc. (Default value = None)</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    ret:</span>
+<span class="sd">     ret</span>
 <span class="sd">        Drawn samples indices from the multinomial distribution.</span>
-<span class="sd">        </span>
-<span class="sd">    Example</span>
-<span class="sd">    -------</span>
-<span class="sd">    &gt;&gt;&gt; ret = ivy.multinomial(population_size = 5, num_samples = 4, batch_size = 3)</span>
-<span class="sd">    &gt;&gt;&gt; print(ret)</span>
-<span class="sd">    ivy.array([[0, 1, 3, 4],</span>
-<span class="sd">               [2, 3, 2, 0],</span>
-<span class="sd">               [4, 4, 1, 0]])</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">()</span><span class="o">.</span><span class="n">multinomial</span><span class="p">(</span><span class="n">population_size</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">probs</span><span class="p">,</span> <span class="n">replace</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">()</span><span class="o">.</span><span class="n">multinomial</span><span class="p">(</span>
+        <span class="n">population_size</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">probs</span><span class="p">,</span> <span class="n">replace</span><span class="p">,</span> <span class="n">device</span>
+    <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="randint"><a class="viewcode-back" href="../../../../functional/ivy/random/randint.html#ivy.functional.ivy.random.randint">[docs]</a><span class="k">def</span> <span class="nf">randint</span><span class="p">(</span><span class="n">low</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-            <span class="n">high</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-            <span class="n">shape</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]],</span>
-            <span class="n">device</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Device</span><span class="p">]</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> \
-            <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Returns a tensor filled with random integers generated uniformly between low (inclusive) and high (exclusive).</span>
+<div class="viewcode-block" id="randint"><a class="viewcode-back" href="../../../../functional/ivy/random/randint.html#ivy.functional.ivy.random.randint">[docs]</a><span class="k">def</span> <span class="nf">randint</span><span class="p">(</span><span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns a tensor filled with random integers generated uniformly between low (inclusive) and high (exclusive).</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    low:</span>
+<span class="sd">    low</span>
 <span class="sd">        Lowest integer to be drawn from the distribution.</span>
-<span class="sd">    high:</span>
+<span class="sd">    high</span>
 <span class="sd">        One above the highest integer to be drawn from the distribution.</span>
-<span class="sd">    shape:</span>
+<span class="sd">    shape</span>
 <span class="sd">        a tuple defining the shape of the output tensor.</span>
-<span class="sd">    device:</span>
+<span class="sd">    device</span>
 <span class="sd">        device on which to create the array &#39;cuda:0&#39;, &#39;cuda:1&#39;, &#39;cpu&#39; etc. (Default value = None)</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    out:</span>
-<span class="sd">        `size`-shaped array of random integers from the appropriate distribution, or a single such random int if `size` not provided.</span>
-<span class="sd">        </span>
-<span class="sd">    Example</span>
-<span class="sd">    -------</span>
-<span class="sd">    &gt;&gt;&gt; x = ivy.randint(low = 0, high = 10, shape = (2, 10))</span>
-<span class="sd">    &gt;&gt;&gt; print(x)</span>
-<span class="sd">    ivy.array([[4, 1, 6, 7, 5, 4, 0, 2, 7, 8],</span>
-<span class="sd">               [4, 5, 9, 1, 1, 0, 5, 8, 9, 2]])</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">()</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span></div>
 
@@ -301,36 +265,19 @@
     <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">()</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed_value</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="shuffle"><a class="viewcode-back" href="../../../../functional/ivy/random/shuffle.html#ivy.functional.ivy.random.shuffle">[docs]</a><span class="k">def</span> <span class="nf">shuffle</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">])</span> \
-            <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Shuffles the given array along axis 0.</span>
+<div class="viewcode-block" id="shuffle"><a class="viewcode-back" href="../../../../functional/ivy/random/shuffle.html#ivy.functional.ivy.random.shuffle">[docs]</a><span class="k">def</span> <span class="nf">shuffle</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Shuffles the given array along axis 0.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    x:</span>
+<span class="sd">    x</span>
 <span class="sd">        An array object, in the specific Machine learning framework.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    ret:</span>
+<span class="sd">     ret</span>
 <span class="sd">        An array object, shuffled along the first dimension.</span>
-<span class="sd">        </span>
-<span class="sd">    Example</span>
-<span class="sd">    -------</span>
-<span class="sd">    &gt;&gt;&gt; x = ivy.random_normal(mean=0.0, std=1.0, shape=(4, 4))</span>
-<span class="sd">    &gt;&gt;&gt; print(x)</span>
-<span class="sd">    ivy.array([[-1.3250, -0.2924,  0.9763, -0.6396],</span>
-<span class="sd">               [-2.1592,  0.2214,  0.3466, -0.4488],</span>
-<span class="sd">               [ 0.2806,  0.5338,  0.6362, -1.0206],</span>
-<span class="sd">               [-2.3644,  1.5784,  2.9821,  0.2933]])</span>
-<span class="sd">    &gt;&gt;&gt; x = ivy.shuffle(x)</span>
-<span class="sd">    &gt;&gt;&gt; print(x)</span>
-<span class="sd">    ivy.array([[ 0.2806,  0.5338,  0.6362, -1.0206],</span>
-<span class="sd">               [-2.3644,  1.5784,  2.9821,  0.2933],</span>
-<span class="sd">               [-1.3250, -0.2924,  0.9763, -0.6396],</span>
-<span class="sd">               [-2.1592,  0.2214,  0.3466, -0.4488]])</span>
-<span class="sd">    </span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_cur_framework</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
 </pre></div>

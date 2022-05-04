@@ -139,26 +139,13 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>low</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Lowest integer to be drawn from the distribution.</p></li>
-<li><p><strong>high</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – One above the highest integer to be drawn from the distribution.</p></li>
-<li><p><strong>shape</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">...</span></code>]]) – a tuple defining the shape of the output tensor.</p></li>
-<li><p><strong>device</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Device</span></code>]) – device on which to create the array ‘cuda:0’, ‘cuda:1’, ‘cpu’ etc. (Default value = None) (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p></li>
+<li><p><strong>low</strong> – Lowest integer to be drawn from the distribution.</p></li>
+<li><p><strong>high</strong> – One above the highest integer to be drawn from the distribution.</p></li>
+<li><p><strong>shape</strong> – a tuple defining the shape of the output tensor.</p></li>
+<li><p><strong>device</strong> – device on which to create the array ‘cuda:0’, ‘cuda:1’, ‘cpu’ etc. (Default value = None)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><em>out</em> – <cite>size</cite>-shaped array of random integers from the appropriate distribution, or a single such random int if <cite>size</cite> not provided.</p>
-</dd>
 </dl>
-<p class="rubric">Example</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="go">ivy.array([[4, 1, 6, 7, 5, 4, 0, 2, 7, 8],</span>
-<span class="go">           [4, 5, 9, 1, 1, 0, 5, 8, 9, 2]])</span>
-</pre></div>
-</div>
 </dd></dl>
 
 <div class="line-block">
