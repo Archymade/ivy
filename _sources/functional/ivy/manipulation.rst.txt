@@ -18,6 +18,7 @@ Manipulation
    manipulation/flip.rst
    manipulation/expand_dims.rst
    manipulation/permute_dims.rst
+   manipulation/permute_dims.rst
    manipulation/stack.rst
    manipulation/reshape.rst
    manipulation/concat.rst
