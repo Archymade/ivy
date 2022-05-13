@@ -200,14 +200,14 @@
 <span class="sd">    &gt;&gt;&gt; x = ivy.random_normal(mean=0.0, std=1.0, shape=(4, 4))</span>
 <span class="sd">    &gt;&gt;&gt; print(x)</span>
 <span class="sd">    ivy.array([[ 2.1141,  0.8101,  0.9298,  0.8460],</span>
-<span class="sd">	       [-1.2119, -0.3519, -0.6252,  0.4033],</span>
-<span class="sd">	       [ 0.7443,  0.2577, -0.3707, -0.0545],</span>
-<span class="sd">	       [-0.3238,  0.5944,  0.0775, -0.4327]])</span>
+<span class="sd">               [-1.2119, -0.3519, -0.6252,  0.4033],</span>
+<span class="sd">               [ 0.7443,  0.2577, -0.3707, -0.0545],</span>
+<span class="sd">               [-0.3238,  0.5944,  0.0775, -0.4327]])</span>
 <span class="sd">    &gt;&gt;&gt; x[range(4), range(4)] = ivy.constants.nan #Introduce NaN values</span>
 <span class="sd">    &gt;&gt;&gt; print(x)</span>
 <span class="sd">    ivy.array([[    nan,  0.8101,  0.9298,  0.8460],</span>
-<span class="sd">	       [-1.2119,     nan, -0.6252,  0.4033],</span>
-<span class="sd">	       [ 0.7443,  0.2577,     nan, -0.0545],</span>
+<span class="sd">               [-1.2119,     nan, -0.6252,  0.4033],</span>
+<span class="sd">               [ 0.7443,  0.2577,     nan, -0.0545],</span>
 <span class="sd">               [-0.3238,  0.5944,  0.0775,     nan]])</span>
 <span class="sd">    &gt;&gt;&gt; values, indices, inverse_indices, counts = ivy.unique_all(x)</span>
 <span class="sd">    &gt;&gt;&gt; print(values)</span>
